@@ -18,7 +18,7 @@ function sendDataToSheet() {
             return Promise.reject(new Error('Failed to send data to sheet. Server responded with ' + response.status + ': ' + response.statusText));
         }
     })
-    .catch(error => Promise.reject(new Error('Error during fetch: ' + error.message))); // Reject on fetch error
+    .catch(error => Promise.reject(new Error('ERROR:' + error.message)));
 }
 
 function sendMessage() {
@@ -35,5 +35,5 @@ function sendMessage() {
 
     return emailjs.send(serviceID, templateID, params)
         .then(response => console.log('SUCCESS!', response.status, response.text))
-        .catch(error => console.log('FAILED...', error));
+        .catch(error => console.log('ERROR:', error));
 }
